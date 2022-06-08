@@ -33,7 +33,7 @@ RestaurantTest {
         //WRITE UNIT TEST CASE HERE
         openingTime = LocalTime.parse("00:52:49");
         closingTime = LocalTime.parse("23:54:49");
-        restaurant = new Restaurant("BarbeqNation","Bangalore",openingTime,closingTime);
+        restaurant = new Restaurant("SIZZLERS","DELHI",openingTime,closingTime);
         assertTrue(restaurant.isRestaurantOpen(), "Restaurant is not open Now");
     }
 
@@ -41,8 +41,8 @@ RestaurantTest {
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         openingTime = LocalTime.parse("00:52:49");
         closingTime = LocalTime.parse("00:52:59");
-        restaurant = new Restaurant("Darshani",
-                "Bangalore",openingTime,
+        restaurant = new Restaurant("SIZZZLERS",
+                "DELHI",openingTime,
                 closingTime);
         assertFalse(restaurant.isRestaurantOpen(), "Restaurant is open Now");
 
@@ -55,7 +55,7 @@ RestaurantTest {
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
         int initialMenuSize = restaurant.getMenu().size();
-        restaurant.addToMenu("Sizzling brownie",319);
+        restaurant.addToMenu("Chocolate cake",434);
         assertEquals(initialMenuSize+1,restaurant.getMenu().size());
     }
     @Test
@@ -67,7 +67,7 @@ RestaurantTest {
     @Test
     public void removing_item_that_does_not_exist_should_throw_exception() {
         assertThrows(itemNotFoundException.class,
-                ()->restaurant.removeFromMenu("French fries"));
+                ()->restaurant.removeFromMenu("Chicken tandoori"));
     }
 
     @Test
