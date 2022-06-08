@@ -17,7 +17,7 @@ class RestaurantServiceTest {
     service = new RestaurantService();
     openingTime= LocalTime.parse("10:30:00");
     closingTime = LocalTime.parse("22:00:00");
-    restaurant = service.addRestaurant("UPAHAARDARSHANI","CHENNAI",LocalTime.now(),LocalTime.NOON);
+    restaurant = service.addRestaurant("CAFE ONE","DELHI",LocalTime.now(),LocalTime.NOON);
 
     }
 
@@ -29,14 +29,14 @@ class RestaurantServiceTest {
     //>>>>>>>>>>>>>>>>>>>>>>SEARCHING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void searching_for_existing_restaurant_should_return_expected_restaurant_object() throws restaurantNotFoundException {
-        restaurant = service.addRestaurant("ABC","CHENNAI",LocalTime.now(),LocalTime.NOON);
-        assertEquals(restaurant ,service.findRestaurantByName("ABC"));
+        restaurant = service.addRestaurant("XYZ","DELHI",LocalTime.now(),LocalTime.NOON);
+        assertEquals(restaurant ,service.findRestaurantByName("XYZ"));
     }
 
     @Test
     public void searching_for_non_existing_restaurant_should_throw_exception() throws restaurantNotFoundException {
         assertThrows(restaurantNotFoundException.class, () -> {
-            service.findRestaurantByName("A2B");
+            service.findRestaurantByName("MYCAFE");
         });
 
     }
